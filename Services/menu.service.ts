@@ -19,12 +19,14 @@ export class MenuService {
         if (!Types.ObjectId.isValid(id)) {
             return ApiErrorCode.invalidParameters;
         }
-        const alcohol = await MenuModel.findById(id);
-        if (alcohol === null) {
+        const menu = await MenuModel.findById(id);
+        if (menu === null) {
             return ApiErrorCode.notFound;
         }
-        return alcohol;
+        return menu;
     }
+
+    
 
     async searchMenu(search): Promise<MenuDocument[] | ApiErrorCode> {
         const filter: FilterQuery<MenuDocument> = {};

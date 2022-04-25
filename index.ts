@@ -17,7 +17,7 @@ async function startServer(): Promise<void> {
         }
     });
 
-    console.log("ok")
+    console.log("CONNECTED AS ",process.env.MONGO_USER);
 
     const app = express();
     app.use(bodyParser.json());
@@ -41,7 +41,26 @@ async function bootstrap(): Promise<void> {
             "product-create",
             "product-read",
             "product-delete",
-            "product-edit"
+            "product-edit",
+            "order-create",
+            "order-read",
+            "order-edit",
+            "order-delete"
+        ]);
+    }
+    const customerRole = await RoleService.getInstance().getByName("customer");
+    if(!customerRole) {
+        await RoleService.getInstance().createRole("customer", [
+            "product-read"
+        ]);
+    }
+    const preparatorRole = await RoleService.getInstance().getByName("preparator");
+    if(!preparatorRole) {
+        await RoleService.getInstance().createRole("preparator", [
+            "product-read",
+            "order-read",
+            "order-edit",
+            "order-delete"
         ]);
     }
 }

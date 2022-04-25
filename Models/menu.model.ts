@@ -4,6 +4,7 @@ import {Schema, Document} from 'mongoose'
 export interface MenuProps{
     id: string;
     name: string;
+    products : string[]; 
     size: String;
     price: Number;
     promo: Boolean;
