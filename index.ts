@@ -51,7 +51,8 @@ async function bootstrap(): Promise<void> {
     const customerRole = await RoleService.getInstance().getByName("customer");
     if(!customerRole) {
         await RoleService.getInstance().createRole("customer", [
-            "product-read"
+            "product-read",
+            "order-create"
         ]);
     }
     const preparatorRole = await RoleService.getInstance().getByName("preparator");

@@ -25,12 +25,10 @@ const orderSchema = new Schema({
     },
     available: {
         type: Boolean,
-        required: true,
         default: false
     },
     status: {
         type: String,
-        required: true,
         default: "PENDING"
     },
 }, {
