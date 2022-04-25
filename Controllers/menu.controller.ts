@@ -26,14 +26,14 @@ export class MenuController {
         const limit = req.query.limit ? Number.parseInt(req.query.limit as string) : 20; //Number
         const offset = req.query.offset ? Number.parseInt(req.query.offset as string) : 0; //Number
         const proof = req.query.proof ? Number.parseInt(req.query.proof as string): undefined;
-        const alcohols = await MenuService.getInstance().searchMenu({
+        const menu = await MenuService.getInstance().searchMenu({
             type: req.query.type as string,
             name: req.query.name as string,
             proof: proof,
             limit: limit,
             offset: offset
         });
-        res.json(alcohols);
+        res.json(menu);
     }
 
     async getMenuById(req, res) {
@@ -51,8 +51,8 @@ export class MenuController {
         const data = req.body;
         try {
             const model = new MenuModel(data);
-            const alcohol = await model.save();
-            res.json(alcohol);
+            const menu = await model.save();
+            res.json(menu);
         } catch(err) {
             res.status(400).end()
         }

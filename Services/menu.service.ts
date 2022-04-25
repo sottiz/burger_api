@@ -59,8 +59,8 @@ export class MenuService {
     async createMenu(create: MenuCreate): Promise<MenuDocument | ApiErrorCode> {
         try {
             const model = new MenuModel(create);
-            const alcohol = await model.save();
-            return alcohol;
+            const menu = await model.save();
+            return menu;
         } catch(err) {
             return ApiErrorCode.invalidParameters;
         }
@@ -71,8 +71,8 @@ export class MenuService {
         if (!Types.ObjectId.isValid(id)) {
             return ApiErrorCode.invalidParameters;
         }
-        const alcohol = await MenuModel.findByIdAndDelete(id);
-        if(alcohol === null) {
+        const menu = await MenuModel.findByIdAndDelete(id);
+        if(menu === null) {
             return ApiErrorCode.notFound
         }
         return ApiErrorCode.success;
@@ -83,14 +83,14 @@ export class MenuService {
             return ApiErrorCode.invalidParameters;
         }
 
-        const alcohol = await MenuModel.findByIdAndUpdate(id, update, {
+        const menu = await MenuModel.findByIdAndUpdate(id, update, {
             returnDocument: "after"
         });
 
-        if(alcohol == null) {
+        if(menu == null) {
             return ApiErrorCode.notFound;
         }
-        return alcohol;
+        return menu;
     }
 
 

@@ -19,11 +19,11 @@ export class ProductService {
         if (!Types.ObjectId.isValid(id)) {
             return ApiErrorCode.invalidParameters;
         }
-        const alcohol = await ProductModel.findById(id);
-        if (alcohol === null) {
+        const product = await ProductModel.findById(id);
+        if (product === null) {
             return ApiErrorCode.notFound;
         }
-        return alcohol;
+        return product;
     }
 
     async searchProduct(search): Promise<ProductDocument[] | ApiErrorCode> {
@@ -57,8 +57,8 @@ export class ProductService {
     async createProduct(create: ProductCreate): Promise<ProductDocument | ApiErrorCode> {
         try {
             const model = new ProductModel(create);
-            const alcohol = await model.save();
-            return alcohol;
+            const product = await model.save();
+            return product;
         } catch(err) {
             return ApiErrorCode.invalidParameters;
         }
@@ -69,8 +69,8 @@ export class ProductService {
         if (!Types.ObjectId.isValid(id)) {
             return ApiErrorCode.invalidParameters;
         }
-        const alcohol = await ProductModel.findByIdAndDelete(id);
-        if(alcohol === null) {
+        const product = await ProductModel.findByIdAndDelete(id);
+        if(product === null) {
             return ApiErrorCode.notFound
         }
         return ApiErrorCode.success;
@@ -81,14 +81,14 @@ export class ProductService {
             return ApiErrorCode.invalidParameters;
         }
 
-        const alcohol = await ProductModel.findByIdAndUpdate(id, update, {
+        const product = await ProductModel.findByIdAndUpdate(id, update, {
             returnDocument: "after"
         });
 
-        if(alcohol == null) {
+        if(product == null) {
             return ApiErrorCode.notFound;
         }
-        return alcohol;
+        return product;
     }
 
 
