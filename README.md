@@ -7,10 +7,13 @@
 cd burger_api
 ```
 ```shell
-npm install
+npm install # Installation des nodes modules
 ```
 ```shell
-echo "PORT=<PORT NUMBER>\nMONGO_URI=<DB URL>\nMONGO_USER=<USER NAME>\nMONGO_PASSWORD=<PASSWORD>" > .env
+echo "PORT=<PORT NUMBER>\nMONGO_URI=<DB URL>\nMONGO_USER=<USER NAME>\nMONGO_PASSWORD=<PASSWORD>" > .env # Entrer des valeurs correctes dans les '</>'
+```
+```shell
+npm start # Démarre le serveur
 ```
 
 ## Syllabus
