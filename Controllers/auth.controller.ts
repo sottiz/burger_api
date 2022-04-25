@@ -21,7 +21,7 @@ export class AuthController {
         const result = await AuthService.getInstance().subscribeUser({
             login: data.login,
             password: data.password,
-            roleName: 'admin'
+            roleName: data.roleName
         });
         if(result === ApiErrorCode.alreadyExists) {
             res.status(409).end(); // CONFLICT

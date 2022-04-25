@@ -1,6 +1,6 @@
 import * as express from 'express'
 import { Types, FilterQuery } from 'mongoose';
-import { parseJsonConfigFileContent, resolveProjectReferencePath } from 'typescript';
+import { isThisTypeNode, parseJsonConfigFileContent, resolveProjectReferencePath } from 'typescript';
 import { ApiErrorCode } from '../api-error-code.enum';
 import { checkUserConnected } from '../middlewares/auth.middleware';
 import { checkUserAccess } from '../middlewares/role.middleware';
@@ -88,7 +88,6 @@ export class MenuController {
         router.get('/:id', checkUserConnected(), checkUserAccess(["product-read"]), this.getMenuById.bind(this));
         router.post("/", checkUserConnected(), checkUserAccess(["product-create"]), this.createMenu.bind(this));
         router.delete("/:id", checkUserConnected(), checkUserAccess(["product-delete"]), this.deleteMenu.bind(this));
-        router.patch("/:id", checkUserConnected(), checkUserAccess(["product-edit"]), this.updateMenu.bind(this));
         return router;
     }
 
