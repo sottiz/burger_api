@@ -19,11 +19,11 @@ export class OrderService {
         if (!Types.ObjectId.isValid(id)) {
             return ApiErrorCode.invalidParameters;
         }
-        const alcohol = await OrderModel.findById(id);
-        if (alcohol === null) {
+        const order = await OrderModel.findById(id);
+        if (order === null) {
             return ApiErrorCode.notFound;
         }
-        return alcohol;
+        return order;
     }
 
     async searchOrder(search): Promise<OrderDocument[] | ApiErrorCode> {
@@ -57,8 +57,8 @@ export class OrderService {
     async createOrder(create: OrderCreate): Promise<OrderDocument | ApiErrorCode> {
         try {
             const model = new OrderModel(create);
-            const alcohol = await model.save();
-            return alcohol;
+            const order = await model.save();
+            return order;
         } catch(err) {
             return ApiErrorCode.invalidParameters;
         }
@@ -69,8 +69,8 @@ export class OrderService {
         if (!Types.ObjectId.isValid(id)) {
             return ApiErrorCode.invalidParameters;
         }
-        const alcohol = await OrderModel.findByIdAndDelete(id);
-        if(alcohol === null) {
+        const order = await OrderModel.findByIdAndDelete(id);
+        if(order === null) {
             return ApiErrorCode.notFound
         }
         return ApiErrorCode.success;
@@ -81,14 +81,14 @@ export class OrderService {
             return ApiErrorCode.invalidParameters;
         }
 
-        const alcohol = await OrderModel.findByIdAndUpdate(id, update, {
+        const order = await OrderModel.findByIdAndUpdate(id, update, {
             returnDocument: "after"
         });
 
-        if(alcohol == null) {
+        if(order == null) {
             return ApiErrorCode.notFound;
         }
-        return alcohol;
+        return order;
     }
 
 

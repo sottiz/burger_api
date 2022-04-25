@@ -26,14 +26,14 @@ export class ProductController {
         const limit = req.query.limit ? Number.parseInt(req.query.limit as string) : 20; //Number
         const offset = req.query.offset ? Number.parseInt(req.query.offset as string) : 0; //Number
         const price = req.query.proof ? Number.parseInt(req.query.proof as string): undefined;
-        const alcohols = await ProductService.getInstance().searchProduct({
+        const product = await ProductService.getInstance().searchProduct({
             name: req.query.type as string,
             category: req.query.name as string,
             price: price,
             limit: limit,
             offset: offset
         });
-        res.json(alcohols);
+        res.json(product);
     }
 
     async getProductById(req, res) {

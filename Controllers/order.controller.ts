@@ -26,14 +26,14 @@ export class OrderController {
         const limit = req.query.limit ? Number.parseInt(req.query.limit as string) : 20; //Number
         const offset = req.query.offset ? Number.parseInt(req.query.offset as string) : 0; //Number
         const proof = req.query.proof ? Number.parseInt(req.query.proof as string): undefined;
-        const alcohols = await OrderService.getInstance().searchOrder({
+        const order = await OrderService.getInstance().searchOrder({
             type: req.query.type as string,
             name: req.query.name as string,
             proof: proof,
             limit: limit,
             offset: offset
         });
-        res.json(alcohols);
+        res.json(order);
     }
 
     async getOrderById(req, res) {
@@ -51,8 +51,8 @@ export class OrderController {
         const data = req.body;
         try {
             const model = new OrderModel(data);
-            const alcohol = await model.save();
-            res.json(alcohol);
+            const order = await model.save();
+            res.json(order);
         } catch(err) {
             res.status(400).end()
         }
