@@ -1,3 +1,19 @@
+## Guide d'utilisation
+### Saisir les commandes suivantes dans un terminal :
+```shell
+ git clone git@github.com:sottiz/burger_api.git
+```
+```shell
+cd burger_api
+```
+```shell
+npm install
+```
+```shell
+echo "PORT=<PORT NUMBER>\nMONGO_URI=<DB URL>\nMONGO_USER=<USER NAME>\nMONGO_PASSWORD=<PASSWORD>" > .env
+```
+
+## Syllabus
 Réalisation d’une application Node.JS permettant de réaliser des commandes aux bornes d’un fast food,
 d'un téléphone et de gérer aussi les comandes en cuisine.
 Il doit IMPERATIVEMENT avoir 3 modes :
@@ -15,3 +31,5 @@ obligatoirement être connecté à l’aide d’un token de session
 Vous devrez réaliser la base de données en relation avec votre API, une documentation de l’ensemble de
 vos services web est attendue (pour chaque : méthode, url, entrée, sortie, cas d’erreur, etc...)
 Bonus: Le mode livraison, un front, une application mobile
+
+
