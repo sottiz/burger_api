@@ -1,21 +1,3 @@
-## Guide d'utilisation
-### Saisir les commandes suivantes dans un terminal :
-```shell
- git clone git@github.com:sottiz/burger_api.git
-```
-```shell
-cd burger_api
-```
-```shell
-npm install # Installation des nodes modules
-```
-```shell
-echo "PORT=<PORT NUMBER>\nMONGO_URI=<DB URL>\nMONGO_USER=<USER NAME>\nMONGO_PASSWORD=<PASSWORD>" > .env # Entrer des valeurs correctes dans les '</>'
-```
-```shell
-npm start # Démarre le serveur
-```
-
 ## Syllabus
 Réalisation d’une application Node.JS permettant de réaliser des commandes aux bornes d’un fast food,
 d'un téléphone et de gérer aussi les comandes en cuisine.
@@ -35,4 +17,34 @@ Vous devrez réaliser la base de données en relation avec votre API, une docume
 vos services web est attendue (pour chaque : méthode, url, entrée, sortie, cas d’erreur, etc...)
 Bonus: Le mode livraison, un front, une application mobile
 
+## Installation & utilisation
+### Saisir les commandes suivantes dans un terminal :
+```shell
+ git clone git@github.com:sottiz/burger_api.git
+```
+```shell
+cd burger_api
+```
+```shell
+npm install # Installation des nodes modules
+```
+```shell
+echo "PORT=<PORT NUMBER>\nMONGO_URI=<DB URL>\nMONGO_USER=<USER NAME>\nMONGO_PASSWORD=<PASSWORD>" > .env # Entrer des valeurs correctes dans les '</>'
+```
+```shell
+npm start # Démarre le serveur
+```
 
+## Requêtes via Postman
+### URLs
+- `http://localhost:<PORT>/auth`  
+- `http://localhost:<PORT>/auth/subscribe`
+- `http://localhost:<PORT>/product`
+- `http://localhost:<PORT>/menu`
+- `http://localhost:<PORT>/order`
+### Méthodes POST
+- 
+### Methodes GET
+- 
+### Méthodes PATCH
+- 
