@@ -1,40 +1,39 @@
 # Projet nodeJS - burger_api
 
-> ## Liens utiles  
-> ---
-  > - ## [Installation et utilisation](#installation--utilisation)
-  >   #
-  > - ## [Gestion des permissions](#gestion-des-permissions-selon-les-rôles)
-  >   - [Permissions sur les produits et menus](#permissions-sur-les-produits--menus)
-  >   - [Permissions sur les commandes](#permissions-sur-les-commandes)
-  >   #
-  > - ## [Requêtes API via Postman](#requc3aates-api-via-postman-1)
-  >   - ### [URLs à renseigner](#liste-des-urls)
-  >     #
-  >   - [Méthodes POST](#méthodes-post)
-  >       - [Création d'un utilisateur](#création-dun-utilisateur)
-  >       - [Connexion à un compte utilisateur](#connexion-à-un-compte-utilisateur)
-  >       - [Création d'un produit](#création-de-produit)
-  >       - [Création d'un menu](#création-de-menu) 
-  >       - [Création d'une commande](#création-de-commande)
-  >       #
-  >   - [Méthodes GET](#)
-  >       - [Récupérer tous les produits](#récupérer-tous-les-produits)
-  >       - [Récupérer un produit par son id](#récupérer-un-produit-par-son-id)
-  >       - [Récupérer tous les menus](#récupérer-tous-les-menus)
-  >       - [Récupérer un menu par son id](#récupérer-un-menu-par-son-id)
-  >       - [Récupérer toutes les commandes](#récupérer-toutes-les-commandes)
-  >       - [Récupérer une commande par son id](#récupérer-une-commande-par-son-id)
-  >       #
-  >   - [Méthodes PATCH](#)
-  >       - [Modifier un produit](#modifier-un-produit)
-  >       - [Modifier un menu](#modifier-un-menu)
-  >       - [Modifier une commande](#modifier-une-commande)
-  >       #
-  >   - [Méthodes DELETE](#)
-  >       - [Supprimer un produit](#supprimer-un-produit)
-  >       - [Supprimer un menu](#supprimer-un-menu)
-  >       - [Supprimer une commande](#supprimer-une-commande)
+> ## Liens utiles
+>  > - ## [Installation et utilisation](#installation--utilisation)
+>  >   #
+>  > - ## [Gestion des permissions](#gestion-des-permissions-selon-les-rôles)
+>  >   - [Permissions sur les produits et menus](#permissions-sur-les-produits--menus)
+>  >   - [Permissions sur les commandes](#permissions-sur-les-commandes)
+>  >   #
+>  > - ## [Requêtes API via Postman](#requc3aates-api-via-postman-1)
+>  >   - ### [URLs à renseigner](#liste-des-urls)
+>  >     #
+>  >   - [Méthodes POST](#méthodes-post)
+>  >       - [Création d'un utilisateur](#création-dun-utilisateur)
+>  >       - [Connexion à un compte utilisateur](#connexion-à-un-compte-utilisateur)
+>  >       - [Création d'un produit](#création-de-produit)
+>  >       - [Création d'un menu](#création-de-menu) 
+>  >       - [Création d'une commande](#création-de-commande)
+>  >       #
+>  >   - [Méthodes GET](#)
+>  >       - [Récupérer tous les produits](#récupérer-tous-les-produits)
+>  >       - [Récupérer un produit par son id](#récupérer-un-produit-par-son-id)
+>  >       - [Récupérer tous les menus](#récupérer-tous-les-menus)
+>  >       - [Récupérer un menu par son id](#récupérer-un-menu-par-son-id)
+>  >       - [Récupérer toutes les commandes](#récupérer-toutes-les-commandes)
+>  >       - [Récupérer une commande par son id](#récupérer-une-commande-par-son-id)
+>  >       #
+>  >   - [Méthodes PATCH](#)
+>  >       - [Modifier un produit](#modifier-un-produit)
+>  >       - [Modifier un menu](#modifier-un-menu)
+>  >       - [Modifier une commande](#modifier-une-commande)
+>  >       #
+>  >   - [Méthodes DELETE](#)
+>  >       - [Supprimer un produit](#supprimer-un-produit)
+>  >       - [Supprimer un menu](#supprimer-un-menu)
+>  >       - [Supprimer une commande](#supprimer-une-commande)
 ----
 
 > ## Installation & utilisation
