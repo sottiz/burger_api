@@ -2,7 +2,6 @@
 
 > ## Liens utiles
 >  > - ## [Installation et utilisation](#installation--utilisation)
->  >   #
 >  > - ## [Gestion des permissions](#gestion-des-permissions-selon-les-rôles)
 >  >   - [Permissions sur les produits et menus](#permissions-sur-les-produits--menus)
 >  >   - [Permissions sur les commandes](#permissions-sur-les-commandes)
