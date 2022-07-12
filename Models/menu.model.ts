@@ -18,6 +18,10 @@ const menuSchema = new Schema({
         type: String,
         required: true
     },
+    products: {
+        type: [String],
+        required: true
+    },
     size: {
         type: String,
         required: true
