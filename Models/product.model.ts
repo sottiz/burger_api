@@ -3,7 +3,7 @@ import {Schema, Document} from 'mongoose'
 
 export interface ProductProps{
     name: string;
-    category: number;
+    category: string;
     price: Number;
     promo: Boolean;
     featured_product: Boolean;

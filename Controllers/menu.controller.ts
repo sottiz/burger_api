@@ -87,6 +87,7 @@ export class MenuController {
         router.get('/', this.searchMenu.bind(this));//.bind conserve le this courrant
         router.get('/:id', checkUserConnected(), checkUserAccess(["product-read"]), this.getMenuById.bind(this));
         router.post("/", checkUserConnected(), checkUserAccess(["product-create"]), this.createMenu.bind(this));
+        router.patch("/:id", checkUserConnected(), checkUserAccess(["product-edit"]), this.updateMenu.bind(this));
         router.delete("/:id", checkUserConnected(), checkUserAccess(["product-delete"]), this.deleteMenu.bind(this));
         return router;
     }
