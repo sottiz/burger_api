@@ -84,8 +84,8 @@ export class OrderController {
     //Chaque controlleur aura son router à construire
     buildRouter() {
         const router = express.Router(); //Création d'un nouveau router
-        router.get('/', checkUserConnected(), checkUserAccess(["order-read"]),this.searchOrder.bind(this));//.bind conserve le this courrant
-        router.get('/:id', checkUserConnected(), checkUserAccess(["order-read"]), this.getOrderById.bind(this));
+        router.get('/',this.searchOrder.bind(this));//.bind conserve le this courrant
+        router.get('/:id', this.getOrderById.bind(this));
         router.post("/", checkUserConnected(), checkUserAccess(["order-create"]), this.createOrder.bind(this));
         router.delete("/:id", checkUserConnected(), checkUserAccess(["order-delete"]), this.deleteOrder.bind(this));
         router.patch("/:id", checkUserConnected(), checkUserAccess(["order-edit"]), this.updateOrder.bind(this));
