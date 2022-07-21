@@ -8,19 +8,26 @@ import { MenuController } from './Controllers/menu.controller';
 import { OrderController } from './Controllers/order.controller';
 import { AuthController } from './Controllers/auth.controller';
 import { RoleService } from './Services/role.service';
+const cors = require('cors')
+const { createProxyMiddleware } = require('http-proxy-middleware');
+
 
 async function startServer(): Promise<void> {
-    await mongoose.connect(process.env.MONGO_URI, {
-        auth: {
-            username: process.env.MONGO_USER,
-            password: process.env.MONGO_PASSWORD
-        }
-    });
+    await mongoose.connect("mongodb+srv://oriana:Y8ocxB3Yqh7qixTR@clusterfastfood.4yvtbdy.mongodb.net/Fastfood");
 
     console.log("CONNECTED AS ",process.env.MONGO_USER);
 
     const app = express();
     app.use(bodyParser.json());
+    app.use(cors());
+    app.use('/admin/orders', createProxyMiddleware({
+        target: 'http://localhost:3000/', //original url
+        changeOrigin: true,
+        //secure: false,
+        onProxyRes: function (proxyRes, req, res) {
+            proxyRes.headers['Access-Control-Allow-Origin'] = '*';
+        }
+    }));
     //Permet d'enregistrer un controller qui est dans un autre fichier
     app.use('/product', ProductController.getInstance().buildRouter());
     app.use('/menu', MenuController.getInstance().buildRouter());
@@ -28,9 +35,9 @@ async function startServer(): Promise<void> {
     app.use('/auth', AuthController.getInstance().buildRouter());
 
     // Utiliser process.env pour récupérer les variables d'environnement
-    app.listen(process.env.PORT, async function() {
+    app.listen(3003, async function() {
         await bootstrap();
-        console.log("Server started on port " + process.env.PORT);
+        console.log("Server started on port " + 3003);
     });
 }
 

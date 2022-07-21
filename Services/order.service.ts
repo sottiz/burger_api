@@ -26,6 +26,14 @@ export class OrderService {
         return order;
     }
 
+    async getOrder(): Promise< any[] | ApiErrorCode> {
+        const order = await OrderModel.find();
+        if (order === null) {
+            return ApiErrorCode.notFound;
+        }
+        return order;
+    }
+
     async searchOrder(search): Promise<OrderDocument[] | ApiErrorCode> {
         const filter: FilterQuery<OrderDocument> = {};
         if (search.type !== undefined) {

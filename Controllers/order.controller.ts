@@ -47,6 +47,16 @@ export class OrderController {
         res.json(result);
     }
 
+    async getOrder(req, res) {
+        const result = await OrderService.getInstance().getOrder();
+        if (result === ApiErrorCode.notFound) {
+            return res.status(404).end();
+        }else if(result === ApiErrorCode.invalidParameters) {
+            return res.status(400).end();
+        }
+        res.json(result);
+    }
+
     async createOrder(req, res) {
         const data = req.body;
         try {
@@ -84,12 +94,15 @@ export class OrderController {
     //Chaque controlleur aura son router à construire
     buildRouter() {
         const router = express.Router(); //Création d'un nouveau router
-        router.get('/', checkUserConnected(), checkUserAccess(["order-read"]),this.searchOrder.bind(this));//.bind conserve le this courrant
+        router.get('/view',this.getOrder.bind(this));
+        router.get('/',this.searchOrder.bind(this));//.bind conserve le this courrant
         router.get('/:id', checkUserConnected(), checkUserAccess(["order-read"]), this.getOrderById.bind(this));
-        router.post("/", checkUserConnected(), checkUserAccess(["order-create"]), this.createOrder.bind(this));
-        router.delete("/:id", checkUserConnected(), checkUserAccess(["order-delete"]), this.deleteOrder.bind(this));
+        router.post("/", this.createOrder.bind(this));
+        router.delete("/:id", this.deleteOrder.bind(this));
         router.patch("/:id", checkUserConnected(), checkUserAccess(["order-edit"]), this.updateOrder.bind(this));
         return router;
     }
+
+    //checkUserConnected(), checkUserAccess(["rôle"])
 
 }
